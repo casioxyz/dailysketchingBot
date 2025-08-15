@@ -49,10 +49,11 @@ for s in subreddit.search(f'title:"{title}"', sort="new", time_filter="day"):
 # ---- KI: Prompt erzeugen ----
 client = OpenAI(api_key=OPENAI_API_KEY)
 
-system_msg = (
+system_message = (
     "Du bist ein kreativer Zeichenlehrer. "
-    "Erzeuge GENAU EINEN Zeichnen-Prompt auf Deutsch, 1–2 Sätze. "
-    "Enthalten: Motiv, Twist/Idee, Stil/Technik oder Einschränkung. "
+    "Erzeuge GENAU EINEN Zeichnen-Prompt auf Englisch, 1–2 Sätze. "
+    "Enthalten: Charakter(e), Twist/Idee, Stil/Technik oder Einschränkung, interessante Pose oder Perspektive. "
+    "Verwende beliebige Zeichenstile, aber nur eigene Charaktere, keine bekannten Original-Charaktere wie Goku oder Naruto. "
     "Keine Listen, keine Erklärungen, nur der Prompt-Text."
 )
 
