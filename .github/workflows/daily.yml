@@ -1,0 +1,29 @@
+name: Daily Reddit Prompt Bot
+
+on:
+  schedule:
+    - cron: "0 * * * *"  # stündlich, damit DST nie stört
+  workflow_dispatch: {}   # manueller Start möglich
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: daily-reddit-ai-prompt
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - run: python bot.py
+        env:
+          REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
+          REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
+          REDDIT_USERNAME: ${{ secrets.REDDIT_USERNAME }}
+          REDDIT_PASSWORD: ${{ secrets.REDDIT_PASSWORD }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          SUBREDDIT: ${{ secrets.SUBREDDIT }}
+          POST_HOUR_BERLIN: ${{ secrets.POST_HOUR_BERLIN }}
+          TITLE_PREFIX: ${{ secrets.TITLE_PREFIX }}
