@@ -70,8 +70,8 @@ resp = client.chat.completions.create(
 prompt_text = resp.choices[0].message.content.strip()
 
 body = (
-    f"Heutiger Prompt:\n\n**{prompt_text}**\n\n"
-    f"Poste deine Zeichnung als Kommentar. Viel Spaß! ✍️"
+    f"Todays Prompt: \n\n**{prompt_text}**\n\n"
+    f"Post your drawing in the Comments. Have Fun! ✍️"
 )
 
 # ---- Posten ----
