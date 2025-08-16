@@ -22,9 +22,9 @@ berlin = ZoneInfo("Europe/Berlin")
 now_berlin = dt.datetime.now(berlin)
 
 # Läuft stündlich: nur posten, wenn gerade die Zielstunde ist
-if now_berlin.hour != POST_HOUR_BERLIN:
-    print(f"Nicht Post-Zeit ({now_berlin:%H:%M}). Beende.")
-    sys.exit(0)
+# if now_berlin.hour != POST_HOUR_BERLIN:
+#     print(f"Nicht Post-Zeit ({now_berlin:%H:%M}). Beende.")
+#     sys.exit(0)
 
 date_str = now_berlin.strftime("%d.%m.%Y")
 title = f"{TITLE_PREFIX} – {date_str}"
