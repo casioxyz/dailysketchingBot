@@ -2,7 +2,7 @@ name: Daily Reddit Prompt Bot
 
 on:
   schedule:
-    - cron: "0 * * * *"  # stündlich, damit DST nie stört
+    - cron: "*/5 * * * *"  # stündlich, damit DST nie stört
   workflow_dispatch: {}   # manueller Start möglich
 
 jobs:
