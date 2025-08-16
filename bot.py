@@ -62,7 +62,7 @@ resp = client.chat.completions.create(
     temperature=0.9,
     max_tokens=150,
     messages=[
-        {"role": "system", "content": system_msg},
+        {"role": "system", "content": system_message},
         {"role": "user", "content": "Bitte jetzt den heutigen Prompt."},
     ],
 )
